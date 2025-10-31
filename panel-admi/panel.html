@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panchelo - Panel Administrativo</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+      
+    <audio id="notificationSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Modal de cierre de caja -->
+    <div id="modalCierreCaja" class="modal-overlay">
+        <div class="modal-content">
+            <h2>🔒 Cerrar Caja del Día</h2>
+            <p>¿Estás seguro que querés cerrar la caja? Se guardará un resumen del día y se limpiarán todos los pedidos.</p>
+            <div class="modal-summary" id="modalSummary">
+                <!-- Se llenará con JavaScript -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-modal-confirm" id="btnConfirmClose">Sí, Cerrar Caja</button>
+                <button class="btn-modal-cancel" id="btnCancelClose">No, Seguir Trabajando</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-container">
+        
+        <aside class="panel-sidebar">
+            <div class="sidebar-header">
+                <img src="../img/panchelo.png" alt="Panchelo" class="sidebar-logo">
+                <h2>Panel Admin</h2>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-section="local">
+                    <span class="nav-icon">🏪</span>
+                    <span class="nav-text">Pedidos en Local</span>
+                    <span class="badge" id="badgeLocal">0</span>
+                </button>
+
+                <button class="nav-btn" data-section="delivery">
+                    <span class="nav-icon">🏍️</span>
+                    <span class="nav-text">Delivery</span>
+                    <span class="badge" id="badgeDelivery">0</span>
+                </button>
+
+                <button class="nav-btn" data-section="retiro">
+                    <span class="nav-icon">📦</span>
+                    <span class="nav-text">Para Retirar</span>
+                    <span class="badge" id="badgeRetiro">0</span>
+                </button>
+
+                <button class="nav-btn" data-section="ventas">
+                    <span class="nav-icon">💰</span>
+                    <span class="nav-text">Ventas del Día</span>
+                </button>
+
+                <button class="nav-btn" data-section="historial">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Historial</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-close-cash" id="btnCloseCash">
+                    <span>🔒</span>
+                    Cerrar Caja
+                </button>
+                <button class="btn-logout" id="btnLogout">
+                    <span>🚪</span>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="panel-content">
+            
+<section class="content-section active" id="section-local">
+    <div class="section-header">
+        <h1>🏪 Pedidos en Local (Presencial)</h1>
+        <p class="section-subtitle">Pedidos realizados directamente en el local</p>
+    </div>
+
+    <div class="horizontal-order-form">
+        <div class="form-header-inline">
+            <h3>➕ Nuevo Pedido</h3>
+        </div>
+        
+        <form id="formLocalOrder">
+            <div class="form-layout-horizontal">
+                
+                <div class="products-column">
+                    <div class="accordion-categories-inline" style="flex: 1;">
+                        
+                        <div class="accordion-item-inline">
+                            <button type="button" class="accordion-btn-inline">
+                                <span class="accordion-icon-inline">🌭</span>
+                                <span>Panchos</span>
+                                <span class="accordion-arrow-inline">▼</span>
+                            </button>
+                            <div class="accordion-content-inline">
+                                <div class="product-row-inline" data-id="panchelo-clasico" data-name="PANCHELO CLÁSICO" data-price="2000">
+                                    <span class="prod-name-inline">Panchelo Clásico</span>
+                                    <span class="prod-price-inline">$2000</span>
+                                </div>
+                                <div class="product-row-inline" data-id="chatarro" data-name="CHATARRO" data-price="7000">
+                                    <span class="prod-name-inline">Chatarro</span>
+                                    <span class="prod-price-inline">$7000</span>
+                                </div>
+                                <div class="product-row-inline" data-id="cheturro" data-name="CHETURRO" data-price="7000">
+                                    <span class="prod-name-inline">Cheturro</span>
+                                    <span class="prod-price-inline">$7000</span>
+                                </div>
+                                <div class="product-row-inline" data-id="chetodulce" data-name="CHETODULCE" data-price="7000">
+                                    <span class="prod-name-inline">Chetodulce</span>
+                                    <span class="prod-price-inline">$7000</span>
+                                </div>
+                                <div class="product-row-inline" data-id="4chetos" data-name="4CHETOS" data-price="7000">
+                                    <span class="prod-name-inline">4Chetos</span>
+                                    <span class="prod-price-inline">$7000</span>
+                                </div>
+                                <div class="product-row-inline" data-id="doble" data-name="PANCHELO DOBLE" data-price="1000">
+                                    <span class="prod-name-inline">Panchelo Doble</span>
+                                    <span class="prod-price-inline">$1000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item-inline">
+                            <button type="button" class="accordion-btn-inline">
+                                <span class="accordion-icon-inline">🍟</span>
+                                <span>Papas Fritas</span>
+                                <span class="accordion-arrow-inline">▼</span>
+                            </button>
+                            <div class="accordion-content-inline">
+                                <div class="product-row-inline" data-id="papas-chica" data-name="PAPAS CHICA" data-price="3500">
+                                    <span class="prod-name-inline">Chica</span>
+                                    <span class="prod-price-inline">$3500</span>
+                                </div>
+                                <div class="product-row-inline" data-id="papas-mediana" data-name="PAPAS MEDIANA" data-price="4500">
+                                    <span class="prod-name-inline">Mediana</span>
+                                    <span class="prod-price-inline">$4500</span>
+                                </div>
+                                <div class="product-row-inline" data-id="papas-grande" data-name="PAPAS GRANDE" data-price="6000">
+                                    <span class="prod-name-inline">Grande</span>
+                                    <span class="prod-price-inline">$6000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item-inline">
+                            <button type="button" class="accordion-btn-inline">
+                                <span class="accordion-icon-inline">🍳</span>
+                                <span>Salchipapa</span>
+                                <span class="accordion-arrow-inline">▼</span>
+                            </button>
+                            <div class="accordion-content-inline">
+                                <div class="product-row-inline" data-id="salchi-chica" data-name="SALCHIPAPA CHICA" data-price="4500">
+                                    <span class="prod-name-inline">Chica</span>
+                                    <span class="prod-price-inline">$4500</span>
+                                </div>
+                                <div class="product-row-inline" data-id="salchi-mediana" data-name="SALCHIPAPA MEDIANA" data-price="6000">
+                                    <span class="prod-name-inline">Mediana</span>
+                                    <span class="prod-price-inline">$6000</span>
+                                </div>
+                                <div class="product-row-inline" data-id="salchi-grande" data-name="SALCHIPAPA GRANDE" data-price="7500">
+                                    <span class="prod-name-inline">Grande</span>
+                                    <span class="prod-price-inline">$7500</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item-inline">
+                            <button type="button" class="accordion-btn-inline">
+                                <span class="accordion-icon-inline">➕</span>
+                                <span>Extras</span>
+                                <span class="accordion-arrow-inline">▼</span>
+                            </button>
+                            <div class="accordion-content-inline">
+                                <div class="product-row-inline" data-id="cheddar-panceta" data-name="CHEDDAR Y PANCETA" data-price="1500">
+                                    <span class="prod-name-inline">Cheddar y Panceta</span>
+                                    <span class="prod-price-inline">$1500</span>
+                                </div>
+                                <div class="product-row-inline" data-id="enrollado" data-name="ENROLLADO QUESO" data-price="1500">
+                                    <span class="prod-name-inline">Enrollado Queso</span>
+                                    <span class="prod-price-inline">$1500</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item-inline">
+                            <button type="button" class="accordion-btn-inline">
+                                <span class="accordion-icon-inline">🥤</span>
+                                <span>Bebidas</span>
+                                <span class="accordion-arrow-inline">▼</span>
+                            </button>
+                            <div class="accordion-content-inline">
+                                <div class="product-row-inline" data-id="coca" data-name="COCA-COLA" data-price="2000">
+                                    <span class="prod-name-inline">Coca-Cola</span>
+                                    <span class="prod-price-inline">$2000</span>
+                                </div>
+                                <div class="product-row-inline" data-id="placer" data-name="PLACER" data-price="800">
+                                    <span class="prod-name-inline">Placer</span>
+                                    <span class="prod-price-inline">$800</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer-inline">
+                        <div class="total-inline">
+                            <span>Total:</span>
+                            <strong id="totalInline">$0</strong>
+                        </div>
+                        <div class="btns-inline">
+                            <button type="submit" class="btn-confirm-inline">✓ Confirmar</button>
+                            <button type="button" class="btn-clear-inline" id="btnClearInline">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-column">
+                    <div class="cart-box">
+                        <div class="cart-header-box">🛒 Carrito</div>
+                        <div class="cart-items-box" id="cartItemsBox">
+                            <div class="empty-cart-msg">Seleccioná productos para comenzar</div>
+                        </div>
+                    </div>
+
+                    <div class="data-fields">
+                        <input type="text" id="clientNameInline" placeholder="👤 Nombre cliente (opcional)">
+                        <textarea id="observationsInline" placeholder="📝 Observaciones (sin cebolla, extra cheddar...)"></textarea>
+                        <select id="paymentInline">
+                            <option value="Efectivo">💵 Efectivo</option>
+                            <option value="Transferencia">📱 Transferencia</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="orders-grid" id="ordersLocal">
+        <div class="empty-state">
+            <div class="empty-icon">📋</div>
+            <h3>No hay pedidos presenciales</h3>
+            <p>Los pedidos que agregues aparecerán aquí</p>
+        </div>
+    </div>
+</section>
+
+<section class="content-section" id="section-delivery">
+    <div class="section-header">
+        <h1>🏍️ Pedidos por Delivery</h1>
+        <p class="section-subtitle">Pedidos para entregar a domicilio</p>
+    </div>
+    <div class="orders-grid" id="ordersDelivery">
+        <div class="empty-state">
+            <div class="empty-icon">🏍️</div>
+            <h3>No hay pedidos de delivery</h3>
+            <p>Los pedidos con delivery aparecerán aquí</p>
+        </div>
+    </div>
+</section>
+
+<section class="content-section" id="section-retiro">
+    <div class="section-header">
+        <h1>📦 Pedidos para Retirar</h1>
+        <p class="section-subtitle">Pedidos web para retirar en el local</p>
+    </div>
+    <div class="orders-grid" id="ordersRetiro">
+        <div class="empty-state">
+            <div class="empty-icon">📦</div>
+            <h3>No hay pedidos para retirar</h3>
+            <p>Los pedidos web para retiro aparecerán aquí</p>
+        </div>
+    </div>
+</section>
+
+<section class="content-section" id="section-ventas">
+    <div class="section-header">
+        <h1>💰 Ventas del Día</h1>
+        <p class="section-subtitle">Resumen de ventas y estadísticas</p>
+    </div>
+    <div class="sales-summary">
+        <div class="summary-card">
+            <div class="card-icon">💵</div>
+            <div class="card-content">
+                <h3>Total Recaudado</h3>
+                <div class="card-value" id="totalRecaudado">$0</div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="card-icon">📦</div>
+            <div class="card-content">
+                <h3>Pedidos Completados</h3>
+                <div class="card-value" id="totalPedidos">0</div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="card-icon">📊</div>
+            <div class="card-content">
+                <h3>Ticket Promedio</h3>
+                <div class="card-value" id="ticketPromedio">$0</div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="card-icon">🏍️</div>
+            <div class="card-content">
+                <h3>Deliveries</h3>
+                <div class="card-value" id="totalDelivery">0</div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="card-icon">💵</div>
+            <div class="card-content">
+                <h3>Efectivo</h3>
+                <div class="card-value" id="montoEfectivo">$0</div>
+            </div>
+        </div>
+        <div class="summary-card">
+            <div class="card-icon">📱</div>
+            <div class="card-content">
+                <h3>Transferencia</h3>
+                <div class="card-value" id="montoTransferencia">$0</div>
+            </div>
+        </div>
+    </div>
+    <div class="sales-breakdown">
+        <h2 class="breakdown-title">Desglose por Tipo de Pedido</h2>
+        <div class="breakdown-cards">
+            <div class="breakdown-card">
+                <div class="breakdown-header">
+                    <span class="breakdown-icon">🏪</span>
+                    <h3>En Local</h3>
+                </div>
+                <div class="breakdown-stats">
+                    <span class="stat-label">Cantidad:</span>
+                    <span class="stat-value" id="cantidadLocal">0</span>
+                    <span class="stat-label">Total:</span>
+                    <span class="stat-value" id="montoLocal">$0</span>
+                </div>
+            </div>
+            <div class="breakdown-card">
+                <div class="breakdown-header">
+                    <span class="breakdown-icon">🏍️</span>
+                    <h3>Delivery</h3>
+                </div>
+                <div class="breakdown-stats">
+                    <span class="stat-label">Cantidad:</span>
+                    <span class="stat-value" id="cantidadDelivery">0</span>
+                    <span class="stat-label">Total:</span>
+                    <span class="stat-value" id="montoDelivery">$0</span>
+                </div>
+            </div>
+            <div class="breakdown-card">
+                <div class="breakdown-header">
+                    <span class="breakdown-icon">📦</span>
+                    <h3>Para Retirar</h3>
+                </div>
+                <div class="breakdown-stats">
+                    <span class="stat-label">Cantidad:</span>
+                    <span class="stat-value" id="cantidadRetiro">0</span>
+                    <span class="stat-label">Total:</span>
+                    <span class="stat-value" id="montoRetiro">$0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sales-breakdown" style="margin-top: 30px;">
+        <h2 class="breakdown-title">Todos los Estados</h2>
+        <div class="breakdown-cards">
+            <div class="breakdown-card">
+                <div class="breakdown-header">
+                    <span class="breakdown-icon">✅</span>
+                    <h3>Completados</h3>
+                </div>
+                <div class="breakdown-stats">
+                    <span class="stat-label">Cantidad:</span>
+                    <span class="stat-value" id="cantidadCompletados">0</span>
+                    <span class="stat-label">Total:</span>
+                    <span class="stat-value" id="montoCompletados">$0</span>
+                </div>
+            </div>
+            <div class="breakdown-card">
+                <div class="breakdown-header">
+                    <span class="breakdown-icon">⏳</span>
+                    <h3>Pendientes</h3>
+                </div>
+                <div class="breakdown-stats">
+                    <span class="stat-label">Cantidad:</span>
+                    <span class="stat-value" id="cantidadPendientes">0</span>
+                    <span class="stat-label">Total:</span>
+                    <span class="stat-value" id="montoPendientes">$0</span>
+                </div>
+            </div>
+            <div class="breakdown-card">
+                <div class="breakdown-header">
+                    <span class="breakdown-icon">❌</span>
+                    <h3>Cancelados</h3>
+                </div>
+                <div class="breakdown-stats">
+                    <span class="stat-label">Cantidad:</span>
+                    <span class="stat-value" id="cantidadCancelados">0</span>
+                    <span class="stat-label">Total:</span>
+                    <span class="stat-value" id="montoCancelados">$0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section" id="section-historial">
+    <div class="section-header">
+        <h1>📊 Historial Completo</h1>
+        <p class="section-subtitle">Ver pedidos por fecha</p>
+    </div>
+    
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <h3>📅 Seleccionar Fecha</h3>
+            <input type="date" id="dateSelector" class="date-input">
+            <button class="btn-print" id="btnPrintReport">🖨️ Imprimir Reporte</button>
+        </div>
+    </div>
+
+    <div class="history-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="local">En Local</button>
+        <button class="filter-btn" data-filter="delivery">Delivery</button>
+        <button class="filter-btn" data-filter="retiro">Para Retirar</button>
+        <button class="filter-btn" data-filter="completado">Completados</button>
+        <button class="filter-btn" data-filter="cancelado">Cancelados</button>
+        <button class="filter-btn" data-filter="efectivo">💵 Efectivo</button>
+        <button class="filter-btn" data-filter="transferencia">📱 Transferencia</button>
+    </div>
+    <div class="history-table-container">
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>N° Pedido</th>
+                    <th>Tipo</th>
+                    <th>Items</th>
+                    <th>Pago</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="historyTableBody">
+                <tr class="empty-row">
+                    <td colspan="7">
+                        <div class="empty-state-small">
+                            <p>Seleccioná una fecha para ver el historial</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+        </main>
+    </div>
+
+    <script type="module" src="panel.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDFtBfNZKQijXbqxcSqVferaLXKdVEhHf8",
+            authDomain: "panchelo.firebaseapp.com",
+            projectId: "panchelo",
+            storageBucket: "panchelo.firebasestorage.app",
+            messagingSenderId: "1085862146003",
+            appId: "1:1085862146003:web:e5e16f0fafe32ffff4c926"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const UID_DUENO = "SQ7BKwG5qqdHlmECFH9oDTyj96V2";
+
+        onAuthStateChanged(auth, (user) => {
+            if (!user || user.uid !== UID_DUENO) {
+                window.location.href = "login.html";
+            }
+        });
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const logoutBtn = document.getElementById("btnLogout");
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", () => {
+                    signOut(auth).then(() => window.location.href = "login.html");
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

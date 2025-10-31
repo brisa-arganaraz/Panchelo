@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panchelo - El Pancheto Perfecto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<!-- ============================================ -->
+    <!-- SECCIÓN: NAVEGACIÓN -->
+    <!-- ============================================ -->
+   <section class="navbar" id="navbar">
+        <div class="nav-container">
+            
+            <!-- LOGO -->
+        <a href="index.html" class="logo">
+           <img src="img/panchelo.png" alt="Local Panchelo" class="logo-img">
+           <img src="img/nombre-logo.png" alt="Panchelo" class="logo-text-img">
+        </a>
+
+            <!-- MENÚ DESKTOP -->
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link" data-page="home">Inicio</a>
+                <a href="menu.html" class="nav-link" data-page="menu">Menú</a>
+                <a href="carrito.html" class="nav-link cart-link" data-page="carrito">
+                    <span class="cart-icon">🛒</span>
+                    <span>Carrito</span>
+                    <span class="cart-badge" id="cartBadgeDesktop" style="display: none;">0</span>
+                </a>
+            </nav>
+
+            <!-- BOTÓN HAMBURGUESA -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- MENÚ MÓVIL -->
+        <nav class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-nav-link" data-page="home">Inicio</a>
+            <a href="menu.html" class="mobile-nav-link" data-page="menu">Menú</a>
+            
+            <div class="mobile-menu-cart">
+                <a href="carrito.html" class="mobile-cart-link">
+                    <span class="cart-icon">🛒</span>
+                    <span>Ver Carrito</span>
+                    <span class="cart-badge" id="cartBadgeMobile" style="display: none;">0</span>
+                </a>
+            </div>
+        </nav>
+    </section> 
+
+<!-- ============================================ -->
+    <!-- SECCIÓN: HERO -->
+    <!-- ============================================ -->
+
+    <section class="hero-section" id="heroSection">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="img/free Delivery (1).mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5
+        </video>
+    </section>
+
+<!-- ============================================ -->
+<!-- BANNER CONSULTAR ESTADO DEL PEDIDO -->
+<!-- ============================================ -->
+<section class="track-banner">
+    <div class="track-banner-container">
+        <div class="track-banner-icon">📦</div>
+        <div class="track-banner-content">
+            <h3>¿Ya hiciste tu pedido?</h3>
+            <p>Consultá el estado de tu pedido en tiempo real</p>
+        </div>
+        <a href="consultar-estado.html" class="track-banner-btn">Consultar Estado</a>
+    </div>
+</section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN: NUESTRA HISTORIA Y POR QUÉ PANCHELO -->
+    <!-- ============================================ -->
+    <section class="about-section">
+        <div class="about-container">
+
+            <!-- BLOQUE 1: NUESTRA HISTORIA -->
+            <div class="story-block">
+                <div class="story-image">
+                    <img src="img/historia.jpeg" alt="Nuestra Historia - Panchelo">
+                </div>
+                <div class="story-content">
+                    <h2>Nuestra Historia</h2>
+                    <p>
+                        Panchelo nació de una pasión: hacer el pancho perfecto. Cansados de los panchos comunes y mediocres, decidimos crear algo verdaderamente especial que revolucionara la forma en que la gente disfruta de este clásico argentino.
+                    </p>
+                    <p>
+                        Cada pancheto se prepara con amor, dedicación y los ingredientes más premium del mercado. Ese toque especial que nos hace únicos es la combinación perfecta de nuestro pan con crocante de queso artesanal, la panceta perfectamente crocante, y el cheddar derretido que conquistará tu paladar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- BLOQUE 2: POR QUÉ PANCHELO -->
+            <div class="why-block">
+                <div class="why-content">
+                    <h2>¿Por Qué Panchelo?</h2>
+                    <div class="reasons-list">
+                        <div class="reason-item">
+                            <span class="reason-icon">✓</span>
+                            <span class="reason-text">Ingredientes de primera calidad seleccionados cuidadosamente</span>
+                        </div>
+                        <div class="reason-item">
+                            <span class="reason-icon">✓</span>
+                            <span class="reason-text">Pan artesanal con crocante de queso único y original</span>
+                        </div>
+                        <div class="reason-item">
+                            <span class="reason-icon">✓</span>
+                            <span class="reason-text">Delivery rápido y garantizado que llega caliente</span>
+                        </div>
+                        <div class="reason-item">
+                            <span class="reason-icon">✓</span>
+                            <span class="reason-text">Atención personalizada y servicio de excelencia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-image">
+                    <img src="img/pancho.jpeg" alt="Por qué Panchelo">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECCIÓN: HAZ TU PEDIDO AHORA (CTA) -->
+    <!-- ============================================ -->
+    <section class="cta-section">
+        
+        <!-- IMAGEN DE FONDO -->
+        <img src="img/fondodecartas.jpeg" alt="Fondo - Haz tu pedido" class="cta-background">
+
+        <!-- OVERLAY OSCURO -->
+        <div class="cta-overlay"></div>
+
+        <!-- CONTENIDO CTA -->
+        <div class="cta-content">
+            <h2>¡Haz Tu Pedido Ahora!</h2>
+            <p>Delivery en toda la zona - Rápido y Caliente</p>
+            <a href="menu.html" class="cta-button">Ver Menú Completo</a>
+        </div>
+
+    </section>
+     
+<!-- ============================================ -->
+    <!-- SECCIÓN: INFORMACIÓN DE CONTACTO -->
+    <!-- ============================================ -->
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-grid">
+                
+                <!-- TARJETA: HORARIOS -->
+                <div class="info-card">
+                    <div class="info-icon icon-yellow">
+                        🕐
+                    </div>
+                    <h3>Horarios</h3>
+                    <p>Lun-Dom: 18:00 - 00:00</p>
+                </div>
+
+                <!-- TARJETA: ZONA DE DELIVERY -->
+                <div class="info-card">
+                    <div class="info-icon icon-red">
+                        📍
+                    </div>
+                    <h3>Zona de Delivery</h3>
+                    <p>Florencio varela (centro)</p>
+                </div>
+
+                <!-- TARJETA: DIRECCIÓN -->
+                <div class="info-card">
+                    <div class="info-icon icon-green">
+                        🏠
+                    </div>
+                    <h3>Dirección</h3>
+                    <p>Boccuzzi 175<br>Florencio varela</p>
+                </div>
+
+                <!-- TARJETA: CONTACTO -->
+                <div class="info-card">
+                    <div class="info-icon icon-yellow">
+                        📞
+                    </div>
+                    <h3>Contacto</h3>
+                    <p>WhatsApp: (11) 1234-5678</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="java.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastrear Pedido - Panchelo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<!-- ============================================ -->
+<!-- SECCIÓN: NAVEGACIÓN -->
+<!-- ============================================ -->
+<section class="navbar" id="navbar">
+    <div class="nav-container">
+        <!-- LOGO -->
+        <a href="index.html" class="logo">
+           <img src="img/panchelo.png" alt="Local Panchelo" class="logo-img">
+           <img src="img/nombre-logo.png" alt="Panchelo" class="logo-text-img">
+        </a>
+
+        <!-- MENÚ DESKTOP -->
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-link" data-page="home">Inicio</a>
+            <a href="menu.html" class="nav-link" data-page="menu">Menú</a>
+            <a href="carrito.html" class="nav-link cart-link" data-page="carrito">
+                <span class="cart-icon">🛒</span>
+                <span>Carrito</span>
+                <span class="cart-badge" id="cartBadgeDesktop" style="display: none;">0</span>
+            </a>
+        </nav>
+
+        <!-- BOTÓN HAMBURGUESA -->
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- MENÚ MÓVIL -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-nav-link" data-page="home">Inicio</a>
+        <a href="menu.html" class="mobile-nav-link" data-page="menu">Menú</a>
+        
+        <div class="mobile-menu-cart">
+            <a href="carrito.html" class="mobile-cart-link">
+                <span class="cart-icon">🛒</span>
+                <span>Ver Carrito</span>
+                <span class="cart-badge" id="cartBadgeMobile" style="display: none;">0</span>
+            </a>
+        </div>
+    </nav>
+</section>
+
+<!-- ============================================ -->
+<!-- SECCIÓN: CONSULTAR ESTADO DEL PEDIDO -->
+<!-- ============================================ -->
+<section class="track-section">
+    <div class="track-container">
+        
+        <!-- FORMULARIO DE LOGIN -->
+        <div class="track-login-box" id="trackLoginBox">
+            <div class="track-icon-header">📦</div>
+            <h1 class="track-title">Consultá el Estado de Tu Pedido</h1>
+            <p class="track-subtitle">Ingresá tu número de pedido y teléfono para ver el estado actual</p>
+            
+            <form class="track-form" id="trackForm">
+                <div class="track-form-group">
+                    <label for="orderNumber">Número de Pedido</label>
+                    <input 
+                        type="text" 
+                        id="orderNumber" 
+                        placeholder="Ej: 001, 002, 003..." 
+                        required
+                        maxlength="10">
+                    <small>Lo recibiste cuando confirmaste tu pedido</small>
+                </div>
+                
+                <div class="track-form-group">
+                    <label for="phoneNumber">Teléfono</label>
+                    <input 
+                        type="tel" 
+                        id="phoneNumber" 
+                        placeholder="Ej: 11 2345 6789" 
+                        required>
+                    <small>El teléfono que usaste al hacer el pedido</small>
+                </div>
+                
+                <button type="submit" class="track-submit-btn">
+                    Ver Estado del Pedido
+                </button>
+            </form>
+            
+            <div class="track-help">
+                <p>💡 <strong>Tip:</strong> El número de pedido aparece en la confirmación que recibiste al finalizar</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE SEGUIMIENTO (oculta por defecto) -->
+        <div class="track-status-box" id="trackStatusBox" style="display: none;">
+            <!-- Se llena dinámicamente con JavaScript -->
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Panchelo. Todos los derechos reservados.</p>
+</footer>
+
+<script type="module" src="rastrear.js"></script>
+
+</body>
+</html>

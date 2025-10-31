@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panchelo - Carrito</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<!-- ============================================ -->
+    <!-- SECCIÓN: NAVEGACIÓN -->
+    <!-- ============================================ -->
+   <section class="navbar" id="navbar">
+        <div class="nav-container">
+            
+            <!-- LOGO -->
+        <a href="index.html" class="logo">
+           <img src="img/panchelo.png" alt="Local Panchelo" class="logo-img">
+           <img src="img/nombre-logo.png" alt="Panchelo" class="logo-text-img">
+        </a>
+
+            <!-- MENÚ DESKTOP -->
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link" data-page="home">Inicio</a>
+                <a href="menu.html" class="nav-link" data-page="menu">Menú</a>
+                <a href="carrito.html" class="nav-link cart-link" data-page="carrito">
+                    <span class="cart-icon">🛒</span>
+                    <span>Carrito</span>
+                    <span class="cart-badge" id="cartBadgeDesktop" style="display: none;">0</span>
+                </a>
+            </nav>
+
+            <!-- BOTÓN HAMBURGUESA -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- MENÚ MÓVIL -->
+        <nav class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-nav-link" data-page="home">Inicio</a>
+            <a href="menu.html" class="mobile-nav-link" data-page="menu">Menú</a>
+            
+            <div class="mobile-menu-cart">
+                <a href="carrito.html" class="mobile-cart-link">
+                    <span class="cart-icon">🛒</span>
+                    <span>Ver Carrito</span>
+                    <span class="cart-badge" id="cartBadgeMobile" style="display: none;">0</span>
+                </a>
+            </div>
+        </nav>
+    </section> 
+
+<!-- ============================================ -->
+    <!-- SECCIÓN: CARRITO -->
+    <!-- ============================================ -->
+    <section class="cart-section">
+        <div class="cart-container">
+            <h1 class="cart-title">TU CARRITO</h1>
+
+            <!-- CARRITO VACÍO -->
+            <div class="empty-cart" id="emptyCart" style="display: none;">
+                <div class="empty-icon">🛒</div>
+                <h2>Tu carrito está vacío</h2>
+                <p>¡Agregá algunos panchitos deliciosos!</p>
+                <a href="menu.html" class="btn-primary">Ver Menú</a>
+            </div>
+
+            <!-- CARRITO CON PRODUCTOS -->
+            <div class="cart-content" id="cartContent" style="display: none;">
+                
+                <!-- LISTA DE PRODUCTOS -->
+                <div class="cart-items" id="cartItems">
+                    <!-- Los productos se cargan dinámicamente con JS -->
+                </div>
+
+                <!-- RESUMEN DEL PEDIDO -->
+                <div class="cart-summary">
+                    <h2 class="summary-title">Resumen del Pedido</h2>
+                    
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span class="summary-price" id="subtotal">$0</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Delivery:</span>
+                        <span class="summary-price" id="delivery">$0</span>
+                    </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <div class="summary-row summary-total">
+                        <span>Total:</span>
+                        <span class="summary-price total-price" id="totalPrice">$0</span>
+                    </div>
+
+                    <button class="btn-checkout" id="btnCheckout">
+                        Confirmar Pedido
+                    </button>
+
+                    <a href="menu.html" class="btn-continue">
+                        Seguir Comprando
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+   <footer>
+      <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="java.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panchelo - Menú</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN: NAVEGACIÓN -->
+  <!-- ============================================ -->
+   
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- LOGO -->
+      <a href="index.html" class="logo">
+        <img src="img/panchelo.png" alt="Local Panchelo" class="logo-img">
+        <img src="img/nombre-logo.png" alt="Panchelo" class="logo-text-img">
+      </a>
+
+      <!-- MENÚ DESKTOP -->
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link" data-page="home">Inicio</a>
+        <a href="menu.html" class="nav-link active" data-page="menu">Menú</a>
+        <a href="carrito.html" class="nav-link cart-link" data-page="carrito">
+          <span class="cart-icon">🛒</span>
+          <span>Carrito</span>
+          <span class="cart-badge" id="cartBadgeDesktop" style="display: none;">0</span>
+        </a>
+      </nav>
+
+      <!-- BOTÓN HAMBURGUESA -->
+      <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- MENÚ MÓVIL -->
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mobile-nav-link" data-page="home">Inicio</a>
+      <a href="menu.html" class="mobile-nav-link active" data-page="menu">Menú</a>
+      <div class="mobile-menu-cart">
+        <a href="carrito.html" class="mobile-cart-link">
+          <span class="cart-icon">🛒</span>
+          <span>Ver Carrito</span>
+          <span class="cart-badge" id="cartBadgeMobile" style="display: none;">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- SECCIÓN: MENÚ -->
+  <!-- ============================================ -->
+
+  <main class="menu-section" id="menu">
+    <div class="container">
+      <h1 class="section-title">MENÚ</h1>
+
+      <!-- ================== PANCHOS ================== -->
+      <section class="category-section">
+        <h2 class="category-title">PANCHOS</h2>
+        <div class="menu-grid">
+
+          <div class="product-card" data-id="1" data-price="2000">
+            <div class="product-image">🌭</div>
+            <div class="product-info">
+              <h3 class="product-name">PANCHELO CLÁSICO</h3>
+              <p class="product-desc">Pan de papa, salchicha</p>
+              <div class="product-footer">
+                <span class="product-price">$2000</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="2" data-price="7000">
+            <div class="product-image">🌭</div>
+            <div class="product-info">
+              <h3 class="product-name">CHATARRO</h3>
+              <p class="product-desc">Pan de papa, cheddar, panceta</p>
+              <div class="product-footer">
+                <span class="product-price">$7000</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="3" data-price="7000">
+            <div class="product-image">🌭</div>
+            <div class="product-info">
+              <h3 class="product-name">CHETURRO</h3>
+              <p class="product-desc">Pan de papa, puré de papa, salsa, muzzarella, aceitunas</p>
+              <div class="product-footer">
+                <span class="product-price">$7000</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="4" data-price="7000">
+            <div class="product-image">🌭</div>
+            <div class="product-info">
+              <h3 class="product-name">CHETODULCE</h3>
+              <p class="product-desc">Pan de papa, cebolla caramelizada, muzzarella, jamón</p>
+              <div class="product-footer">
+                <span class="product-price">$7000</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="5" data-price="7000">
+            <div class="product-image">🌭</div>
+            <div class="product-info">
+              <h3 class="product-name">4CHETOS</h3>
+              <p class="product-desc">Pan de papa, muzzarella, cheddar, roquefort, reggianito</p>
+              <div class="product-footer">
+                <span class="product-price">$7000</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="6" data-price="1000">
+            <div class="product-image">🌭🌭</div>
+            <div class="product-info">
+              <h3 class="product-name">HACÉ TU PANCHELO DOBLE</h3>
+              <p class="product-desc">Personalizá tu pancho doble</p>
+              <div class="product-footer">
+                <span class="product-price">$1000</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== PAPAS FRITAS ================== -->
+      <section class="category-section">
+        <h2 class="category-title">PAPAS FRITAS</h2>
+        <div class="menu-grid">
+          <div class="product-card" data-id="7" data-price="3500">
+            <div class="product-image">🍟</div>
+            <div class="product-info">
+              <h3 class="product-name">CHICA</h3>
+              <p class="product-desc">Porción chica de papas crujientes</p>
+              <div class="product-footer">
+                <span class="product-price">$3500</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="8" data-price="4500">
+            <div class="product-image">🍟</div>
+            <div class="product-info">
+              <h3 class="product-name">MEDIANA</h3>
+              <p class="product-desc">Porción mediana de papas crujientes</p>
+              <div class="product-footer">
+                <span class="product-price">$4500</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="9" data-price="6000">
+            <div class="product-image">🍟</div>
+            <div class="product-info">
+              <h3 class="product-name">GRANDE</h3>
+              <p class="product-desc">Porción grande de papas crujientes</p>
+              <div class="product-footer">
+                <span class="product-price">$6000</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== SALCHIPAPA CON HUEVO ================== -->
+      <section class="category-section">
+        <h2 class="category-title">SALCHIPAPA C/ HUEVO</h2>
+        <div class="menu-grid">
+          <div class="product-card" data-id="10" data-price="4500">
+            <div class="product-image">🍳</div>
+            <div class="product-info">
+              <h3 class="product-name">CHICA</h3>
+              <p class="product-desc">Papas con salchicha y huevo</p>
+              <div class="product-footer">
+                <span class="product-price">$4500</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="11" data-price="6000">
+            <div class="product-image">🍳</div>
+            <div class="product-info">
+              <h3 class="product-name">MEDIANA</h3>
+              <p class="product-desc">Papas con salchicha y huevo</p>
+              <div class="product-footer">
+                <span class="product-price">$6000</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="12" data-price="7500">
+            <div class="product-image">🍳</div>
+            <div class="product-info">
+              <h3 class="product-name">GRANDE</h3>
+              <p class="product-desc">Papas con salchicha y huevo</p>
+              <div class="product-footer">
+                <span class="product-price">$7500</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== EXTRAS ================== -->
+      <section class="category-section">
+        <h2 class="category-title">EXTRA</h2>
+        <div class="menu-grid">
+          <div class="product-card" data-id="13" data-price="1500">
+            <div class="product-image">🧀</div>
+            <div class="product-info">
+              <h3 class="product-name">CHEDDAR Y PANCETA</h3>
+              <p class="product-desc">Agregá cheddar y panceta extra</p>
+              <div class="product-footer">
+                <span class="product-price">$1500</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="14" data-price="1500">
+            <div class="product-image">🧀</div>
+            <div class="product-info">
+              <h3 class="product-name">ENROLLADO DE QUESO</h3>
+              <p class="product-desc">Pan con crocante de queso enrollado</p>
+              <div class="product-footer">
+                <span class="product-price">$1500</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================== BEBIDAS ================== -->
+      <section class="category-section">
+        <h2 class="category-title">BEBIDAS</h2>
+        <div class="menu-grid">
+          <div class="product-card" data-id="15" data-price="2000">
+            <div class="product-image">🥤</div>
+            <div class="product-info">
+              <h3 class="product-name">COCA-COLA</h3>
+              <p class="product-desc">Bebida Coca-Cola</p>
+              <div class="product-footer">
+                <span class="product-price">$2000</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card" data-id="16" data-price="800">
+            <div class="product-image">🥤</div>
+            <div class="product-info">
+              <h3 class="product-name">PLACER</h3>
+              <p class="product-desc">Bebida Placer</p>
+              <div class="product-footer">
+                <span class="product-price">$800</span>
+                <button class="add-btn">Agregar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FLOATING CART BUTTON -->
+
+  <div class="floating-cart" id="floatingCart" style="display: none;">
+    <div class="cart-icon">🛒</div>
+    <div class="cart-info">
+      <span id="cartItemCount">0</span> ítems - $<span id="cartTotal">0</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>&copy; 2025 Panchelo. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+
+ <script type="module" src="java.js"></script>
+
+</body>
+</html>
