@@ -445,7 +445,7 @@ body {
 }
 
 /* ============================================ */
-        /* SECCIÓN: NUESTRA HISTORIA Y POR QUÉ PANCHELO */
+        /* SECCIÓN: NUESTRA HISTORIA Y POR QUÉ pancho */
         /* ============================================ */
 
         .about-section {
@@ -534,7 +534,7 @@ body {
         }
 
         /* ============================================ */
-        /* POR QUÉ PANCHELO - SEGUNDA PARTE */
+        /* POR QUÉ pancho - SEGUNDA PARTE */
         /* ============================================ */
 
         .why-block {
@@ -4277,4 +4277,4 @@ footer {
 
 .modal-overlay.show .modal-content {
     transform: scale(1) !important;
-}
+} 

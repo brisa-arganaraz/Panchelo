@@ -491,7 +491,7 @@ function printDayReport(dateStr) {
         </head>
         <body>
             <div class="header">
-                <h1>🌭 PANCHELO</h1>
+                <h1>🌭 PANCHO</h1>
                 <h2>Reporte de Ventas</h2>
                 <p>${dateFormatted}</p>
             </div>

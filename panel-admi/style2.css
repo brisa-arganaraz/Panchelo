@@ -40,7 +40,7 @@ section {
     height: 150px;
     opacity: 0.08;
     animation: float 20s infinite ease-in-out;
-    background-image: url('../img/panchelo.png');
+    background-image: url('../img/pancho.png');
     background-size: contain;
     background-repeat: no-repeat;
     pointer-events: none; /* ✅ No bloquea clics */
@@ -2154,3 +2154,4 @@ body {
     color: #DC3545;
     border: 1px solid #DC3545;
 }
+ 
